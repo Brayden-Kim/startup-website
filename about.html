@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소개 - 스타트업 맞춤형 웹사이트 제작</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a4b84;
+            --secondary: #2b6cb0;
+            --accent: #4299e1;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --transition: all 0.3s ease;
+        }
+
+        .logo {
+            letter-spacing: -0.9px;
+            font-weight: 600;
+        }
+
+        /* 그리드 시스템 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 페이지 헤더 */
+        .page-header {
+            position: relative;
+            padding: 10rem 0 15rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/pattern.png') center/cover;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            grid-column: 2 / 12;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .header-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-content p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 메인 콘텐츠 */
+        .main-content {
+            margin-top: -10rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 프로필 섹션 */
+        .profile-section {
+            grid-column: 2 / 12;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 4rem;
+            background: var(--bg-primary);
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .profile-image {
+            grid-column: 1 / 6;
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: var(--transition);
+        }
+
+        .profile-info {
+            grid-column: 6 / -1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-info h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-info p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* 강점 섹션 */
+        .strengths-section {
+            grid-column: 2 / 12;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .strengths-section h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .strength-item {
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strength-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+
+        .strength-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .strength-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .strength-item i {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .strength-item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .strength-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* 스토리 섹션 */
+        .story-section {
+            grid-column: 2 / 12;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 4rem;
+            background: var(--bg-primary);
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .story-content {
+            grid-column: 1 / -1;
+        }
+
+        .story-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .story-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-section,
+        .strengths-section,
+        .story-section {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .strength-item {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .strength-item:nth-child(1) { animation-delay: 0.2s; }
+        .strength-item:nth-child(2) { animation-delay: 0.4s; }
+        .strength-item:nth-child(3) { animation-delay: 0.6s; }
+
+        /* 반응형 디자인 */
+        @media (max-width: 1200px) {
+            .grid-container {
+                gap: 1.5rem;
+            }
+
+            .profile-section,
+            .story-section {
+                grid-column: 1 / -1;
+                margin: 0 2rem 4rem;
+            }
+
+            .strengths-section {
+                grid-column: 1 / -1;
+                margin: 0 2rem 4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-content h1 {
+                font-size: 3rem;
+            }
+
+            .profile-section {
+                padding: 2rem;
+            }
+
+            .profile-image {
+                grid-column: 1 / -1;
+            }
+
+            .profile-info {
+                grid-column: 1 / -1;
+            }
+
+            .strengths-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 8rem 0 12rem;
+            }
+
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-content p {
+                font-size: 1.2rem;
+            }
+
+            .profile-info h2,
+            .strengths-section h2,
+            .story-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .strengths-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .strength-item {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Site Bridge</a>
+            <ul class="nav-links">
+                <li><a href="services.html">서비스</a></li>
+                <li><a href="portfolio.html">포트폴리오</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="contact.html">문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="grid-container">
+                <div class="header-content">
+                    <h1>소개</h1>
+                    <p>전문적인 웹 개발과 비즈니스 인사이트의 결합</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-content">
+            <div class="grid-container">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="Brayden_Profile_Square.jpg" alt="프로필 이미지">
+                    </div>
+                    <div class="profile-info">
+                        <h2>비전과 미션</h2>
+                        <p>경영학 전공과 전문적인 웹 개발 역량을 바탕으로, 스타트업의 성공적인 온라인 비즈니스 구축을 지원합니다. 사용자 중심의 디자인과 안정적인 개발을 통해 고객의 비즈니스 가치를 극대화합니다.</p>
+                    </div>
+                </div>
+
+                <div class="strengths-section">
+                    <h2>전문성과 강점</h2>
+                    <div class="strengths-grid">
+                        <div class="strength-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>비즈니스 이해</h3>
+                            <p>경영학 기반의 전문적인 비즈니스 전략 수립과 시장 분석 능력을 보유하고 있습니다.</p>
+                        </div>
+                        <div class="strength-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>웹 개발 전문성</h3>
+                            <p>최신 웹 기술을 활용한 안정적이고 효율적인 웹사이트 개발 역량을 갖추고 있습니다.</p>
+                        </div>
+                        <div class="strength-item">
+                            <i class="fas fa-users"></i>
+                            <h3>사용자 중심</h3>
+                            <p>사용자 경험을 최우선으로 고려한 직관적이고 효율적인 웹사이트를 제작합니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-section">
+                    <div class="story-content">
+                        <h2>제작자 소개</h2>
+                        <p>경영학을 전공하며 다양한 스타트업의 비즈니스 모델을 연구했고, 이를 웹사이트로 구현하기 위해 전문적인 웹 개발 역량을 쌓았습니다. 스타트업의 성장 단계에 맞는 최적의 웹사이트를 제작하여, 온라인 비즈니스의 성공적인 시작과 성장을 돕고 있습니다.</p>
+                        <p>각 고객사의 독특한 비즈니스 모델과 목표를 깊이 이해하고, 이를 효과적으로 구현하는 맞춤형 웹사이트 제작에 주력하고 있습니다. 지속적인 기술 연구와 시장 트렌드 분석을 통해 최신의 웹 개발 서비스를 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>연락처</h3>
+                <p>전화번호: 010-9890-4610</p>
+                <p>이메일: masicms54@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>링크</h3>
+                <ul>
+                    <li><a href="#privacy">개인정보처리방침</a></li>
+                    <li><a href="#terms">이용약관</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Site Bridge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 개인정보처리방침 팝업 -->
+    <div id="privacy-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('privacy-popup')">&times;</span>
+            <h1 class="popup-title">개인정보처리방침</h1>
+            <div class="popup-body">
+                <p>AI Web Solutions(이하 '회사')는 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.</p>
+
+                <h2>1. 개인정보의 처리 목적</h2>
+                <p>회사는 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.</p>
+                <ul>
+                    <li>고객 문의 및 상담 처리</li>
+                    <li>서비스 제공에 관한 계약 이행</li>
+                    <li>마케팅 및 광고에의 활용</li>
+                </ul>
+
+                <h2>2. 개인정보의 처리 및 보유 기간</h2>
+                <p>회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.</p>
+
+                <h2>3. 개인정보의 제3자 제공</h2>
+                <p>회사는 정보주체의 동의, 법률의 특별한 규정 등 개인정보보호법 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.</p>
+
+                <h2>4. 정보주체의 권리·의무 및 그 행사방법</h2>
+                <p>이용자는 개인정보주체로서 다음과 같은 권리를 행사할 수 있습니다.</p>
+                <ul>
+                    <li>개인정보 열람요구</li>
+                    <li>오류 등이 있을 경우 정정 요구</li>
+                    <li>삭제요구</li>
+                    <li>처리정지 요구</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 이용약관 팝업 -->
+    <div id="terms-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('terms-popup')">&times;</span>
+            <h1 class="popup-title">이용약관</h1>
+            <div class="popup-body">
+                <p>본 약관은 AI Web Solutions(이하 '회사')가 제공하는 웹사이트 제작 서비스의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
+
+                <h2>1. 용어의 정의</h2>
+                <ul>
+                    <li>'서비스'라 함은 회사가 제공하는 모든 웹사이트 제작 및 관련 서비스를 의미합니다.</li>
+                    <li>'이용자'라 함은 회사의 서비스를 이용하는 고객을 의미합니다.</li>
+                </ul>
+
+                <h2>2. 서비스의 제공 및 변경</h2>
+                <p>회사는 다음과 같은 업무를 수행합니다.</p>
+                <ul>
+                    <li>웹사이트 제작 및 유지보수 서비스</li>
+                    <li>호스팅 및 도메인 관리 서비스</li>
+                    <li>기타 회사가 정하는 서비스</li>
+                </ul>
+
+                <h2>3. 서비스 이용료 및 결제</h2>
+                <p>서비스 이용료는 상호 협의하에 결정되며, 계약서에 명시된 방법으로 결제합니다.</p>
+
+                <h2>4. 의무 및 책임</h2>
+                <p>회사는 서비스 제공과 관련하여 알게 된 이용자의 정보를 본인의 승낙 없이 제3자에게 제공하지 않습니다.</p>
+
+                <h2>5. 분쟁해결</h2>
+                <p>서비스 이용과 관련하여 발생한 분쟁에 대해서는 상호 협의하에 해결하되, 협의가 이루어지지 않을 경우 관련법에 따라 처리합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 팝업 열기
+        function openPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 팝업 닫기
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 푸터 링크에 이벤트 리스너 추가
+        document.addEventListener('DOMContentLoaded', function() {
+            // 개인정보처리방침 링크
+            document.querySelectorAll('a[href="#privacy"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openPopup('privacy-popup');
+                });
+            });
+
+            // 이용약관 링크
+            document.querySelectorAll('a[href="#terms"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openPopup('terms-popup');
+                });
+            });
+
+            // 팝업 외부 클릭 시 닫기
+            document.querySelectorAll('.popup-overlay').forEach(popup => {
+                popup.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closePopup(this.id);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

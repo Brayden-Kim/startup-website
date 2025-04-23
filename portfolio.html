@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 - 스타트업 맞춤형 웹사이트 제작</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .logo {
+            letter-spacing: -0.9px;
+            font-weight: 600;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 16/9;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.9),
+                rgba(0, 0, 0, 0.6),
+                transparent
+            );
+            padding: 2rem;
+            color: white;
+            transform: translateY(100px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .portfolio-overlay p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .view-project {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #0984E3, #00B894);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .portfolio-item:hover .view-project {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .view-project:hover {
+            background: white;
+            color: #0984E3;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .portfolio-overlay {
+                padding: 1.5rem;
+            }
+
+            .portfolio-overlay h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">AI Web Solutions</a>
+            <ul class="nav-links">
+                <li><a href="services.html">서비스</a></li>
+                <li><a href="portfolio.html">포트폴리오</a></li>
+                <li><a href="about.html">소개</a></li>
+                <li><a href="contact.html">문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>포트폴리오</h1>
+            <p>스타트업을 위한 맞춤형 웹사이트 제작 사례</p>
+        </section>
+
+        <section class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/portfolio1.jpg" alt="핀테크 스타트업 웹사이트">
+                <div class="portfolio-overlay">
+                    <h3>핀테크 스타트업</h3>
+                    <p>금융 서비스 스타트업을 위한 전문 웹사이트</p>
+                    <a href="#" class="view-project">프로젝트 보기</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio2.jpg" alt="헬스케어 스타트업 웹사이트">
+                <div class="portfolio-overlay">
+                    <h3>헬스케어 스타트업</h3>
+                    <p>디지털 헬스케어 서비스 소개 웹사이트</p>
+                    <a href="#" class="view-project">프로젝트 보기</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio3.jpg" alt="이커머스 스타트업 웹사이트">
+                <div class="portfolio-overlay">
+                    <h3>이커머스 스타트업</h3>
+                    <p>혁신적인 쇼핑 경험을 제공하는 웹사이트</p>
+                    <a href="#" class="view-project">프로젝트 보기</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio4.jpg" alt="에듀테크 스타트업 웹사이트">
+                <div class="portfolio-overlay">
+                    <h3>에듀테크 스타트업</h3>
+                    <p>온라인 교육 플랫폼 웹사이트</p>
+                    <a href="#" class="view-project">프로젝트 보기</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio5.jpg" alt="SaaS 스타트업 웹사이트">
+                <div class="portfolio-overlay">
+                    <h3>SaaS 스타트업</h3>
+                    <p>클라우드 기반 서비스 소개 웹사이트</p>
+                    <a href="#" class="view-project">프로젝트 보기</a>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="images/portfolio6.jpg" alt="푸드테크 스타트업 웹사이트">
+                <div class="portfolio-overlay">
+                    <h3>푸드테크 스타트업</h3>
+                    <p>식품 배달 서비스 플랫폼 웹사이트</p>
+                    <a href="#" class="view-project">프로젝트 보기</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>연락처</h3>
+                <p>전화번호: 010-9890-4610</p>
+                <p>이메일: masicms54@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>링크</h3>
+                <ul>
+                    <li><a href="#privacy">개인정보처리방침</a></li>
+                    <li><a href="#terms">이용약관</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AI Web Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- 개인정보처리방침 팝업 -->
+    <div id="privacy-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('privacy-popup')">&times;</span>
+            <h1 class="popup-title">개인정보처리방침</h1>
+            <div class="popup-body">
+                <p>AI Web Solutions(이하 '회사')는 개인정보보호법에 따라 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게 처리할 수 있도록 다음과 같은 처리방침을 두고 있습니다.</p>
+
+                <h2>1. 개인정보의 처리 목적</h2>
+                <p>회사는 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.</p>
+                <ul>
+                    <li>고객 문의 및 상담 처리</li>
+                    <li>서비스 제공에 관한 계약 이행</li>
+                    <li>마케팅 및 광고에의 활용</li>
+                </ul>
+
+                <h2>2. 개인정보의 처리 및 보유 기간</h2>
+                <p>회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.</p>
+
+                <h2>3. 개인정보의 제3자 제공</h2>
+                <p>회사는 정보주체의 동의, 법률의 특별한 규정 등 개인정보보호법 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.</p>
+
+                <h2>4. 정보주체의 권리·의무 및 그 행사방법</h2>
+                <p>이용자는 개인정보주체로서 다음과 같은 권리를 행사할 수 있습니다.</p>
+                <ul>
+                    <li>개인정보 열람요구</li>
+                    <li>오류 등이 있을 경우 정정 요구</li>
+                    <li>삭제요구</li>
+                    <li>처리정지 요구</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 이용약관 팝업 -->
+    <div id="terms-popup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup('terms-popup')">&times;</span>
+            <h1 class="popup-title">이용약관</h1>
+            <div class="popup-body">
+                <p>본 약관은 AI Web Solutions(이하 '회사')가 제공하는 웹사이트 제작 서비스의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
+
+                <h2>1. 용어의 정의</h2>
+                <ul>
+                    <li>'서비스'라 함은 회사가 제공하는 모든 웹사이트 제작 및 관련 서비스를 의미합니다.</li>
+                    <li>'이용자'라 함은 회사의 서비스를 이용하는 고객을 의미합니다.</li>
+                </ul>
+
+                <h2>2. 서비스의 제공 및 변경</h2>
+                <p>회사는 다음과 같은 업무를 수행합니다.</p>
+                <ul>
+                    <li>웹사이트 제작 및 유지보수 서비스</li>
+                    <li>호스팅 및 도메인 관리 서비스</li>
+                    <li>기타 회사가 정하는 서비스</li>
+                </ul>
+
+                <h2>3. 서비스 이용료 및 결제</h2>
+                <p>서비스 이용료는 상호 협의하에 결정되며, 계약서에 명시된 방법으로 결제합니다.</p>
+
+                <h2>4. 의무 및 책임</h2>
+                <p>회사는 서비스 제공과 관련하여 알게 된 이용자의 정보를 본인의 승낙 없이 제3자에게 제공하지 않습니다.</p>
+
+                <h2>5. 분쟁해결</h2>
+                <p>서비스 이용과 관련하여 발생한 분쟁에 대해서는 상호 협의하에 해결하되, 협의가 이루어지지 않을 경우 관련법에 따라 처리합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 팝업 열기
+        function openPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 팝업 닫기
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 푸터 링크에 이벤트 리스너 추가
+        document.addEventListener('DOMContentLoaded', function() {
+            // 개인정보처리방침 링크
+            document.querySelectorAll('a[href="#privacy"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openPopup('privacy-popup');
+                });
+            });
+
+            // 이용약관 링크
+            document.querySelectorAll('a[href="#terms"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openPopup('terms-popup');
+                });
+            });
+
+            // 팝업 외부 클릭 시 닫기
+            document.querySelectorAll('.popup-overlay').forEach(popup => {
+                popup.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closePopup(this.id);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
